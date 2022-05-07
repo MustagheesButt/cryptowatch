@@ -26,9 +26,9 @@ export const Post = () => {
     return response.json()
   }
 
-  const { isLoading, isError, data: posts } = useQuery(['posts', params.slug], () => fetchPost(params.slug))
+  const { isLoading, data: posts } = useQuery(['posts', params.slug], () => fetchPost(params.slug))
   const post = posts?.length > 0 ? posts[0] : undefined
-  const { isLoading: authorLoading, data: author } = useQuery(['author', post], () => fetchAuthor(post?.author))
+  const { data: author } = useQuery(['author', post], () => fetchAuthor(post?.author))
 
   return (
     <>
