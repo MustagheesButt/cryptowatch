@@ -1,8 +1,11 @@
 import { useRoutes } from "react-router-dom"
+import { QueryClient, QueryClientProvider } from "react-query"
 import Home from "./pages/Home"
 import Post from "./pages/Post"
 import About from "./pages/About"
 import './styles/globals.css'
+
+const queryClient = new QueryClient()
 
 const App = () => {
   const routes = [
@@ -15,7 +18,9 @@ const App = () => {
   let element = useRoutes(routes)
 
   return (
-    <div>{element}</div>
+    <QueryClientProvider client={queryClient}>
+      {element}
+    </QueryClientProvider>
   )
 }
 
