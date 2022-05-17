@@ -2,8 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
+import UserContextProvider from './contexts/User'
 import reportWebVitals from './reportWebVitals'
 
+const ContextProviders = ({ children }) => {
+  return (
+    <UserContextProvider>
+      {children}
+    </UserContextProvider>
+  )
+}
 
 const container = document.getElementById('root')
 const root = ReactDOM.createRoot(container);
@@ -11,7 +19,9 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ContextProviders>
+        <App />
+      </ContextProviders>
     </BrowserRouter>
   </React.StrictMode>
 )

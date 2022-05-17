@@ -13,6 +13,8 @@ const res = {
       }
     },
     nav: {
+      login: "Login",
+      logout: "Logout",
       about: "About Us"
     }
   },
@@ -24,6 +26,8 @@ const res = {
       }
     },
     nav: {
+      login: "لاگ ان کریں",
+      logout: "لاگ آوٹ",
       about: "ہمارے بارے میں"
     }
   }

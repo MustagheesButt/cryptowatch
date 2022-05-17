@@ -1,5 +1,7 @@
 import { useRoutes } from "react-router-dom"
 import { QueryClient, QueryClientProvider } from "react-query"
+import { Web3ReactProvider } from "@web3-react/core"
+import { Web3Provider } from "@ethersproject/providers"
 import Home from "./pages/Home"
 import Post from "./pages/Post"
 import About from "./pages/About"
@@ -18,9 +20,11 @@ const App = () => {
   let element = useRoutes(routes)
 
   return (
-    <QueryClientProvider client={queryClient}>
-      {element}
-    </QueryClientProvider>
+    <Web3ReactProvider getLibrary={(provider) => new Web3Provider(provider) }>
+      <QueryClientProvider client={queryClient}>
+        {element}
+      </QueryClientProvider>
+    </Web3ReactProvider>
   )
 }
 

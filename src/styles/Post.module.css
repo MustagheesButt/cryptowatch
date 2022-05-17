@@ -24,8 +24,18 @@
 .article a {
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: 0.75s;
+}
+
+.article a:hover {
+  @apply text-gray-500 dark:text-white
 }
 
 .article img {
   margin-bottom: 2rem;
+}
+
+.article ul {
+  list-style-type: disc;
+  margin-left: 15px;
 }
